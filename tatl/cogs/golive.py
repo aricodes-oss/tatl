@@ -79,6 +79,7 @@ class GoLive(commands.Cog):
     group = discord.SlashCommandGroup("golive", "Manages Twitch golive notifications")
 
     @group.command(description="Adds a user to the golive notifications list")
+    @discord.default_permissions(manage_messages=True)
     async def subscribe(
         self,
         ctx: discord.ApplicationContext,
@@ -110,6 +111,7 @@ class GoLive(commands.Cog):
         await ctx.respond(f"Subscribed to {user.display_name} streams!")
 
     @group.command(description="Removes a user from the golive notifications list")
+    @discord.default_permissions(manage_messages=True)
     async def unsubscribe(
         self,
         ctx: discord.ApplicationContext,
